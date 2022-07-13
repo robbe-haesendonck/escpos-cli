@@ -3,10 +3,11 @@ import logging
 import argparse
 
 from xmlescpos.printer import Usb
+from xmlescpos.exceptions import NoStatusError
 
 
 logger = logging.getLogger(__name__)
-__VERSION__ = '0.0.1'
+__VERSION__ = '0.0.2'
 
 
 def main():
@@ -35,12 +36,20 @@ def main():
         out_ep=args.device_output_endpoint
     )
 
-    if args.open_cashdrawer:
-        device.cashdraw(2)
-        device.cashdraw(5)
+    try:
+        device.get_printer_status()
+    except NoStatusError as e:
+        logger.error(e)
+    except Exception as e:
+        logger.error("An unknown exception occured: " + str(e))
+    else:
+        if args.open_cashdrawer:
+            device.cashdraw(2)
+            device.cashdraw(5)
 
-    if args.receipt_xml:
-        device.receipt(args.receipt_xml)
+        if args.receipt_xml:
+            device.receipt(args.receipt_xml)
+
 
 
 if __name__ == '__main__':
