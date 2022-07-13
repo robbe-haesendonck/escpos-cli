@@ -5,7 +5,7 @@ import argparse
 from xmlescpos.printer import Usb
 from xmlescpos.exceptions import NoStatusError
 
-
+logging.basicConfig()
 logger = logging.getLogger(__name__)
 __VERSION__ = '0.0.2'
 
