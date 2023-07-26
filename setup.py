@@ -26,7 +26,8 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'pyxmlescpos'
+        'pyxmlescpos',
+        'python-escpos==3.0a9'
     ],
     entry_points={
         'console_scripts': [
@@ -34,6 +35,6 @@ setup(
         ]
     },
     dependency_links=[
-        'git+https://github.com/kalmanolah/py-xml-escpos.git#egg=pyxmlescpos'
+        'git+https://github.com/robbe-haesendonck/py-xml-escpos.git#egg=pyxmlescpos'
     ]
 )
