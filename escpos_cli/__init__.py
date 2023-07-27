@@ -49,7 +49,7 @@ def main():
 
         if args.receipt_xml:
             Layout(args.receipt_xml).format(device)
-            printer.cut(feed=False)
+            device.cut(feed=False)
 
 
 
