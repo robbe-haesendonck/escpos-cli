@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name='escpos-cli',
-    version='0.0.2',
+    version='0.0.3',
     description='escpos-cli is a command-line utility for printer stuff using pyxmlescpos',
     long_description=read('README.md'),
     author='Kalman Olah',
